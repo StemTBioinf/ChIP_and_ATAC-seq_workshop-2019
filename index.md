@@ -709,7 +709,7 @@ Behold! Peaks separated between these clusters can furter be targeted for downst
 
 > **8.** Create bigwigs and a basic heatmap with deepTools.
 
-**BONUS:** **FRiP-score calculation with Homer.**
+**BONUS:** **FRIP-score calculation with Homer.**
 
 We will start by calculating the reads in peaks. We can do this with `annotatePeaks.pl` if we provide two extra arguments `-raw' and '-d /path-to-tag-directory'
 
@@ -727,7 +727,7 @@ The total tags/reads can be found in the tagInfo.txt file in the tag directory. 
 
 > Total tags/reads = 8848637
 
-> FRiP = 1877944/8848637 = 0.21
+> FRIP = 1877944/8848637 = 0.21
 
 
 There are many more ways to do this if Homer is not availiable. For instance featureCounts from the subread package can be used if providing a bam and a peak-file. Experiment away!
