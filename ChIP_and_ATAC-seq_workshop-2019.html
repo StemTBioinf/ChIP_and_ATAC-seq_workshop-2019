@@ -764,6 +764,7 @@ pre.editor-colors .bracket-matcher .region {
 <p>ProT cells pre (ETPs) and post (DN3) T-cell lineage commitment</p>
 <p>You will recieve data in the bed-format but the command for the preprocessing  can be found in the following scripts:</p>
 <p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">preprocessing_ChIP.sh</code> <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">ChIP_wrapper.sh</code> <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">preprocessing_ATAC.sh</code> <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">ATAC_wrapper.sh</code> <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">batch_maketagdirectory.sh</code> <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">makeTag_wrapper.sh</code>.</p>
+<h1></h1>
 <hr>
 <p>###############################################################
 ###############################################################</p>
@@ -1284,7 +1285,7 @@ Write a sbatch script for this task.</p>
 <blockquote>
 <p><strong>8.</strong> Create bigwigs and a basic heatmap with deepTools.</p>
 </blockquote>
-<p><strong>BONUS:</strong> <strong>FRiP-score calculation with Homer.</strong></p>
+<p><strong>BONUS:</strong> <strong>FRIP-score calculation with Homer.</strong></p>
 <p>We will start by calculating the reads in peaks. We can do this with <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">annotatePeaks.pl</code> if we provide two extra arguments `-raw’ and ‘-d /path-to-tag-directory’</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">module</span> load GCC/7.3.0-2.30 homer/4.10</span></span>
 <span class=""></span> 
@@ -1299,7 +1300,7 @@ Write a sbatch script for this task.</p>
 <p>Total tags/reads = 8848637</p>
 </blockquote>
 <blockquote>
-<p>FRiP = 1877944/8848637 = 0.21</p>
+<p>FRIP = 1877944/8848637 = 0.21</p>
 </blockquote>
 <p>There are many more ways to do this if Homer is not availiable. For instance featureCounts from the subread package can be used if providing a bam and a peak-file. Experiment away!</p>
 
