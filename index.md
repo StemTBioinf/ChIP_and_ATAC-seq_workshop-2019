@@ -69,17 +69,14 @@ We will now use Homer's makeTagDirectory to create tag directories from all the 
 
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'makeTagDirectories' # name of the job
 #SBATCH -o 'makeTagDirectories%j.out' # stdout log file
 #SBATCH -e 'makeTagDirectories%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 
@@ -212,17 +209,14 @@ For now we will just use the basic proximity based annotation. This requires a b
 
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'annotation_mm10' # name of the job
 #SBATCH -o 'annotation_mm10%j.out' # stdout log file
 #SBATCH -e 'annotation_mm10%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -252,17 +246,14 @@ When we have the peak file, basic motif-analysis in Homer is easy. Motif analysi
 **Task:** Perform motif analysis on the PU.1 ChIP-files. **WARNING!** A motif analysis can take a considerable amount of time if you have many peaks. Allocate accordingly.
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'findMotifsGenome_mm10' # name of the job
 #SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file
 #SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -311,17 +302,14 @@ homerTools extract 11735_DN2b_PU1_peaks_15_200.txt /projects/fs1/common/genome/l
 Create and run a batch-script that calls chip-meme.
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 02:00:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'chip_meme' # name of the job
 #SBATCH -o 'chip_meme_mm10%j.out' # stdout log file
 #SBATCH -e 'chip_meme%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load meme module
@@ -374,17 +362,14 @@ First create a batch-script that perform the operation:
 
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora projec
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'macs2_callpeaks' # name of the job
 #SBATCH -o 'macs2_callpeaks%j.out' # stdout log file
 #SBATCH -e 'macs2_callpeaks%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load the MACS2 module
@@ -486,9 +471,7 @@ _Open and look at the files._
 **Task:** What motifs are enriched in the two different categories?
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora projec
 #SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
@@ -496,7 +479,7 @@ _Open and look at the files._
 #SBATCH -J 'findMotifsGenome_mm10' # name of the job
 #SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file
 #SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -621,17 +604,14 @@ bamCoverage -h
 Create a sbatch script for this task.
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'bamCoverage' # name of the job
 #SBATCH -o 'bamCoverage%j.out' # stdout log file
 #SBATCH -e 'bamCoverage%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 sample_path="/home/jonun/NAS2/ChIP-ATAC-workshop-2019-course-material"
@@ -675,17 +655,14 @@ Great! Now we have created us some bigwig files to compute a matrix from with co
 Write a sbatch script for this task.
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'computeMatrix' # name of the job
 #SBATCH -o 'computeMatrix%j.out' # stdout log file
 #SBATCH -e 'computeMatrix%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load the deepTools module
@@ -704,17 +681,14 @@ This will create a matrix center in the middle of each peak and extended outward
 Now are we finally ready to plot the heatmap and while doing so we will also cluster our data into two clusters.
 ```bash
 #! /bin/bash
-#
-#SBATCH -A lu2018-2-44
-#SBATCH -p lu
-#SBATCH --reservation=lu2018-2-44
+#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
 #SBATCH -J 'plotHeatmap' # name of the job
 #SBATCH -o 'plotHeatmap%j.out' # stdout log file
 #SBATCH -e 'plotHeatmap%j.err' # stderr log file
-
+#SBATCH -p dell # which partition to use
 # A script that preprocesses the ChIP samples.
 
 #Load the deepTools module
