@@ -782,17 +782,14 @@ pre.editor-colors .bracket-matcher .region {
 <pre class="editor-colors lang-bash"><span class=""><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">makeTagDirectory</span></span></span></pre>
 <p>We will now use Homer’s makeTagDirectory to create tag directories from all the filtered bam-files (including ATAC-samples since this will be used later). Sadly this will not immediately work since Homer requires samtools to this. Batch scripting to the rescue.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'makeTagDirectories' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'makeTagDirectories%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'makeTagDirectories%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""></span> 
@@ -890,17 +887,14 @@ $6 is the column where Homer stores the Normalized peak score in a peak file.</p
 <a href="http://homer.ucsd.edu/homer/ngs/quantification.html">http://homer.ucsd.edu/homer/ngs/quantification.html</a>
 For now we will just use the basic proximity based annotation. This requires a built-in Homer database (needs to be separately installed). In this case we will use <em>mm10</em>.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'annotation_mm10' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'annotation_mm10%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'annotation_mm10%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load Homer module</span></span></span>
@@ -926,17 +920,14 @@ For now we will just use the basic proximity based annotation. This requires a b
 <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">findMotifsGenome.pl</code></p>
 <p><strong>Task:</strong> Perform motif analysis on the PU.1 ChIP-files. <strong>WARNING!</strong> A motif analysis can take a considerable amount of time if you have many peaks. Allocate accordingly.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'findMotifsGenome_mm10' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load Homer module</span></span></span>
@@ -969,17 +960,14 @@ For now we will just use the basic proximity based annotation. This requires a b
 <p><strong>NOTE:</strong> This can also be done with bedtools getfasta after converting the peak file to a bed file but more on that later.</p>
 <p>Create and run a batch-script that calls chip-meme.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 1 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 02:00:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'chip_meme' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'chip_meme_mm10%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'chip_meme%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load meme module</span></span></span>
@@ -1016,17 +1004,14 @@ Option 1: To find enriched cutting sites such as some DNAse-Seq datasets. In thi
 <p><strong>Homework:</strong> Re-run the command below with option two to see how it performs against option 1.</p>
 <p>First create a batch-script that perform the operation:</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora projec</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 1 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'macs2_callpeaks' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'macs2_callpeaks%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'macs2_callpeaks%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load the MACS2 module</span></span></span>
@@ -1092,9 +1077,7 @@ The number of lines in a file can be derived with the command <code style="font-
 <p><strong>4.</strong> <strong>Motif analysis on subset specific ATAC-peaks.</strong></p>
 <p><strong>Task:</strong> What motifs are enriched in the two different categories?</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora projec</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
@@ -1102,7 +1085,7 @@ The number of lines in a file can be derived with the command <code style="font-
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'findMotifsGenome_mm10' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load Homer module</span></span></span>
@@ -1197,17 +1180,14 @@ The number of lines in a file can be derived with the command <code style="font-
 <pre class="editor-colors lang-bash"><span class=""><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">bamCoverage</span> <span class="syntax--entity syntax--other syntax--attribute-name">-h</span></span></span></pre>
 <p>Create a sbatch script for this task.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'bamCoverage' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'bamCoverage%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'bamCoverage%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--variable syntax--other syntax--member">sample_path</span>=<span class="syntax--string">"/home/jonun/NAS2/ChIP-ATAC-workshop-2019-course-material"</span></span></span>
@@ -1244,17 +1224,14 @@ The number of lines in a file can be derived with the command <code style="font-
 <p>Great! Now we have created us some bigwig files to compute a matrix from with computeMatrix.
 Write a sbatch script for this task.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 1 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'computeMatrix' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'computeMatrix%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'computeMatrix%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load the deepTools module</span></span></span>
@@ -1271,17 +1248,14 @@ Write a sbatch script for this task.</p>
 <p>This will create a matrix center in the middle of each peak and extended outwards with 1250 bp in both directions. Read densities will be calculated with a bin size of 10 bp but this can be changed with the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">-bs</code> option.</p>
 <p>Now are we finally ready to plot the heatmap and while doing so we will also cluster our data into two clusters.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lu2018-2-44</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p lu</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora project</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 1 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -J 'plotHeatmap' # name of the job</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -o 'plotHeatmap%j.out' # stdout log file</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -e 'plotHeatmap%j.err' # stderr log file</span></span></span>
-<span class=""></span> 
+<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -p dell # which partition to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block"># A script that preprocesses the ChIP samples.</span></span></span>
 <span class=""></span> 
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#Load the deepTools module</span></span></span>
