@@ -1,7 +1,7 @@
 # ChIP and ATAC-seq workshop 2019
 
 ### -by Jonas "your-friendly-neighbourhood-chromatin-companion" Ungerbäck
-##################################################################################################################
+##########################################################################
 ### Workshop information:
 
 In this workshop you will learn to work with ChIP and ATAC-sequencing data, mainly via the command line interface. You will learn to call peaks, looking at overlapping peaks between different datasets, annotate peaks, motif analysis with Homer and the MEME suite and creating bigwigs and heatmaps with deepTools.
@@ -41,6 +41,17 @@ You will recieve data in the bed-format but the command for the preprocessing  c
 #
 --------------------------------------------------------------
 
+### First and foremost:
+
+We will use aurora and not Lsens2 for this workshops so after login into Aurora (aurora.lunarc.lu.se), go to the folder you will be working in /lunarc/nobackup/users/_youruser_.
+
+Copy the following folder to you user:
+
+```bash
+cp -r /lunarc/nobackup/users/jonun/ChIP-ATAC-workshop-2019-course-material .
+#Go to the folder.
+cd ChIP-ATAC-workshop-2019-course-material
+```
 ###############################################################
 ###############################################################
 ### ChIP-seq assignments
@@ -58,7 +69,7 @@ We will now use Homer's makeTagDirectory to create tag directories from all the 
 
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -198,7 +209,7 @@ For now we will just use the basic proximity based annotation. This requires a b
 
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -235,7 +246,7 @@ When we have the peak file, basic motif-analysis in Homer is easy. Motif analysi
 **Task:** Perform motif analysis on the PU.1 ChIP-files. **WARNING!** A motif analysis can take a considerable amount of time if you have many peaks. Allocate accordingly.
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -291,7 +302,7 @@ homerTools extract 11735_DN2b_PU1_peaks_15_200.txt /projects/fs1/common/genome/l
 Create and run a batch-script that calls chip-meme.
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 02:00:00 # kill the job after ths hh::mm::ss time
@@ -351,7 +362,7 @@ First create a batch-script that perform the operation:
 
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -460,7 +471,7 @@ _Open and look at the files._
 **Task:** What motifs are enriched in the two different categories?
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 01:00:00 # kill the job after ths hh::mm::ss time
@@ -592,7 +603,7 @@ bamCoverage -h
 Create a sbatch script for this task.
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -643,7 +654,7 @@ Great! Now we have created us some bigwig files to compute a matrix from with co
 Write a sbatch script for this task.
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -669,7 +680,7 @@ This will create a matrix center in the middle of each peak and extended outward
 Now are we finally ready to plot the heatmap and while doing so we will also cluster our data into two clusters.
 ```bash
 #! /bin/bash
-#SBATCH -A lsens2018-3-6 # the ID of our Aurora project
+#SBATCH -A	LU2018-2-44 # the ID of our Aurora project
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
