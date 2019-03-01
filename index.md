@@ -79,7 +79,7 @@ We will now use Homer's makeTagDirectory to create tag directories from all the 
 #SBATCH -J 'makeTagDirectories' # name of the job
 #SBATCH -o 'makeTagDirectories%j.out' # stdout log file
 #SBATCH -e 'makeTagDirectories%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 
@@ -222,7 +222,7 @@ For now we will just use the basic proximity based annotation. This requires a b
 #SBATCH -J 'annotation_mm10' # name of the job
 #SBATCH -o 'annotation_mm10%j.out' # stdout log file
 #SBATCH -e 'annotation_mm10%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -262,7 +262,7 @@ When we have the peak file, basic motif-analysis in Homer is easy. Motif analysi
 #SBATCH -J 'findMotifsGenome_mm10' # name of the job
 #SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file
 #SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -321,7 +321,7 @@ Create and run a batch-script that calls chip-meme.
 #SBATCH -J 'chip_meme' # name of the job
 #SBATCH -o 'chip_meme_mm10%j.out' # stdout log file
 #SBATCH -e 'chip_meme%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load meme module
@@ -384,7 +384,7 @@ First create a batch-script that perform the operation:
 #SBATCH -J 'macs2_callpeaks' # name of the job
 #SBATCH -o 'macs2_callpeaks%j.out' # stdout log file
 #SBATCH -e 'macs2_callpeaks%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load the MACS2 module
@@ -496,7 +496,7 @@ _Open and look at the files._
 #SBATCH -J 'findMotifsGenome_mm10' # name of the job
 #SBATCH -o 'findMotifsGenome_mm10%j.out' # stdout log file
 #SBATCH -e 'findMotifsGenome_mm10%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load Homer module
@@ -631,7 +631,7 @@ Create a sbatch script for this task.
 #SBATCH -J 'bamCoverage' # name of the job
 #SBATCH -o 'bamCoverage%j.out' # stdout log file
 #SBATCH -e 'bamCoverage%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 sample_path="/home/jonun/NAS2/ChIP-ATAC-workshop-2019-course-material"
@@ -685,7 +685,7 @@ Write a sbatch script for this task.
 #SBATCH -J 'computeMatrix' # name of the job
 #SBATCH -o 'computeMatrix%j.out' # stdout log file
 #SBATCH -e 'computeMatrix%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load the deepTools module
@@ -714,7 +714,7 @@ Now are we finally ready to plot the heatmap and while doing so we will also clu
 #SBATCH -J 'plotHeatmap' # name of the job
 #SBATCH -o 'plotHeatmap%j.out' # stdout log file
 #SBATCH -e 'plotHeatmap%j.err' # stderr log file
-#SBATCH -p dell # which partition to use
+
 # A script that preprocesses the ChIP samples.
 
 #Load the deepTools module
