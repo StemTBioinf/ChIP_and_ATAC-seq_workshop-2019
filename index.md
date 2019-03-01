@@ -69,7 +69,10 @@ We will now use Homer's makeTagDirectory to create tag directories from all the 
 
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -209,7 +212,10 @@ For now we will just use the basic proximity based annotation. This requires a b
 
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -246,7 +252,10 @@ When we have the peak file, basic motif-analysis in Homer is easy. Motif analysi
 **Task:** Perform motif analysis on the PU.1 ChIP-files. **WARNING!** A motif analysis can take a considerable amount of time if you have many peaks. Allocate accordingly.
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -302,7 +311,10 @@ homerTools extract 11735_DN2b_PU1_peaks_15_200.txt /projects/fs1/common/genome/l
 Create and run a batch-script that calls chip-meme.
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 02:00:00 # kill the job after ths hh::mm::ss time
@@ -362,7 +374,10 @@ First create a batch-script that perform the operation:
 
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -471,7 +486,10 @@ _Open and look at the files._
 **Task:** What motifs are enriched in the two different categories?
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 01:00:00 # kill the job after ths hh::mm::ss time
@@ -603,7 +621,10 @@ bamCoverage -h
 Create a sbatch script for this task.
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
@@ -654,7 +675,10 @@ Great! Now we have created us some bigwig files to compute a matrix from with co
 Write a sbatch script for this task.
 ```bash
 #! /bin/bash
-#SBATCH -A  LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:30:00 # kill the job after ths hh::mm::ss time
@@ -680,7 +704,10 @@ This will create a matrix center in the middle of each peak and extended outward
 Now are we finally ready to plot the heatmap and while doing so we will also cluster our data into two clusters.
 ```bash
 #! /bin/bash
-#SBATCH -A	LU2018-2-44 # the ID of our Aurora project
+#
+#SBATCH -A lu2018-2-44
+#SBATCH -p lu
+#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 1 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 00:20:00 # kill the job after ths hh::mm::ss time
