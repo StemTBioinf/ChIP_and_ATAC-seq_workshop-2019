@@ -43,12 +43,12 @@ You will recieve data in the bed-format but the command for the preprocessing  c
 
 ### First and foremost:
 
-We will use aurora and not Lsens2 for this workshops so after login into Aurora (aurora.lunarc.lu.se), go to the folder you will be working in /lunarc/nobackup/users/_youruser_.
+We will use aurora and not Lsens2 for this workshops so after login into Aurora (aurora.lunarc.lu.se), go to the folder you will be working in /projects/fs3/_youruser_.
 
 Copy the following folder to you user:
 
 ```bash
-cp -r /lunarc/nobackup/users/jonun/ChIP-ATAC-workshop-2019-course-material .
+cp -r /tmp/ChIP-ATAC-workshop-2019-course-material .
 #Go to the folder.
 cd ChIP-ATAC-workshop-2019-course-material
 ```
