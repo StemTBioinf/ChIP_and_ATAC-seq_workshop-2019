@@ -472,7 +472,6 @@ _Open and look at the files._
 ```bash
 #! /bin/bash
 #SBATCH -A lsens2018-3-6 # the ID of our Aurora projec
-#SBATCH --reservation=lu2018-2-44
 #SBATCH -n 4 # how many processor cores to use
 #SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)
 #SBATCH -t 01:00:00 # kill the job after ths hh::mm::ss time
@@ -596,7 +595,7 @@ module purge
 
 
 ```bash
-module load icc/2017.4.196-GCC-6.4.0-2.28  impi/2017.3.196 ifort/2017.4.196-GCC-6.4.0-2.28  impi/2017.3.196 deepTools/2.5.4-Python-3.6.3
+module load GCC/7.3.0-2.30 OpenMPI/3.1.1 deepTools/2.5.4-Python-3.6.6
 ```
 ```bash
 bamCoverage -h
