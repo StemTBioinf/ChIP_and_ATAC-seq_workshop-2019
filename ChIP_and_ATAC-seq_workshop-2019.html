@@ -1078,7 +1078,6 @@ The number of lines in a file can be derived with the command <code style="font-
 <p><strong>Task:</strong> What motifs are enriched in the two different categories?</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -A lsens2018-3-6 # the ID of our Aurora projec</span></span></span>
-<span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH --reservation=lu2018-2-44</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -n 4 # how many processor cores to use</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -N 1 # how many processors to use (always use 1 here unless you know what you are doing)</span></span></span>
 <span class=""><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#SBATCH -t 01:00:00 # kill the job after ths hh::mm::ss time</span></span></span>
@@ -1176,7 +1175,7 @@ The number of lines in a file can be derived with the command <code style="font-
 <ul>
 <li>Then we will create the files (bigwigs) to be used as the input for the matrix to be visualized. <strong>BONUS:</strong> These bigwig tracks can also be visulized in a genome browser, like IGV or UCSC which is something I <strong>ALWAYS</strong> would recommend. This is done with the bamCoverage function in deepTools but first, load the deepTools module.</li>
 </ul>
-<pre class="editor-colors lang-bash"><span class=""><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">module</span> load icc/2017.4.196-GCC-6.4.0-2.28  impi/2017.3.196 ifort/2017.4.196-GCC-6.4.0-2.28  impi/2017.3.196 deepTools/2.5.4-Python-3.6.3</span></span></pre>
+<pre class="editor-colors lang-bash"><span class=""><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">module</span> load GCC/7.3.0-2.30 OpenMPI/3.1.1 deepTools/2.5.4-Python-3.6.6</span></span></pre>
 <pre class="editor-colors lang-bash"><span class=""><span class="syntax--source syntax--shell"><span class="syntax--entity syntax--name syntax--function">bamCoverage</span> <span class="syntax--entity syntax--other syntax--attribute-name">-h</span></span></span></pre>
 <p>Create a sbatch script for this task.</p>
 <pre class="editor-colors lang-bash"><span><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--block">#! /bin/bash</span></span></span>
